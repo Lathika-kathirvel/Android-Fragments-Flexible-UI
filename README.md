@@ -1,409 +1,557 @@
-# MAD Lab Experiment 3
+# Experiment 3 – Android Application Using Fragments for Flexible UI
 
-## Build an Android Application Using Fragments for Flexible UI
+ 
 
----
+## Student Details
 
-## 📌 Experiment Details
+ 
 
-**Experiment Number:** 3
+**Name:** Lathika Kathirvel  
 
-**Experiment Title:** Build an Android application using Fragments for flexible UI.
+**USN:** YOUR_USN  
 
-**Student Name:** Tejas Sunil Waske
+ 
 
-**USN:** 25MCAR0189
+**Experiment:** 3  
 
-**Programming Language:** Kotlin
+**Topic:** Build an Android application using Fragments for flexible UI
 
-**IDE:** Android Studio
+ 
 
-**Platform:** Android
+## GitHub Repository
 
----
+ 
 
-# 🎯 Aim
+[Android-Fragments-Flexible-UI](https://github.com/Lathika-kathirvel/Android-Fragments-Flexible-UI)
 
-To develop an Android application using Fragments to demonstrate a flexible, modular, and reusable user interface.
-
----
-
-# 📌 Objectives
-
-The objectives of this experiment are:
-
-* To understand the concept of Android Fragments.
-* To learn how to create and use Fragments in an Android application.
-* To understand Fragment-based UI design.
-* To use RecyclerView to display a list of items.
-* To implement a Master-Detail user interface.
-* To understand communication between different UI components.
-* To demonstrate flexible and reusable UI components using Fragments.
+ 
 
 ---
 
-# 💡 Concept / Theory
+ 
 
-## What is a Fragment?
+## 1. Objective
 
-A Fragment is a modular portion of an Android application's user interface that is hosted inside an Activity. A Fragment has its own lifecycle and can be added, removed, or replaced while the Activity is running.
+ 
 
-Fragments are useful for creating flexible user interfaces because different Fragments can be combined and reused within Activities.
+To build an Android application using **Fragments** to demonstrate a flexible, modular, and reusable user interface.
 
-Android recommends using a `FragmentContainerView` as a container when placing Fragments in an Activity.
+ 
 
----
+The application demonstrates how different UI components can be separated into independent Fragments and displayed within an Activity.
 
-## What is RecyclerView?
-
-RecyclerView is an Android UI component used to display a collection of items efficiently.
-
-It uses an Adapter and ViewHolder to create and bind list items. RecyclerView reuses item views when they move off-screen, which improves performance and responsiveness.
+ 
 
 ---
 
-# 🛠️ Technologies Used
+ 
 
-| Technology       | Purpose                         |
-| ---------------- | ------------------------------- |
-| Kotlin           | Programming language            |
-| Android Studio   | Development environment         |
-| Android SDK      | Android application development |
-| AndroidX         | Modern Android libraries        |
-| Fragments        | Modular and flexible UI         |
-| RecyclerView     | Displaying list of items        |
-| ConstraintLayout | Designing application layouts   |
-| Material Design  | UI components and styling       |
-| Gradle           | Project build system            |
+## 2. Concept / Technology Used
+
+ 
+
+### Android Fragments
+
+ 
+
+A Fragment is a reusable portion of an Android application's user interface and behavior. Fragments can be combined within an Activity and can be replaced or updated dynamically.
+
+ 
+
+Fragments are useful for:
+
+ 
+
+- Creating modular user interfaces
+
+- Reusing UI components
+
+- Supporting flexible layouts
+
+- Managing different sections of an application
+
+- Providing better navigation between screens
+
+ 
+
+### Technologies Used
+
+ 
+
+- **Android Studio**
+
+- **Kotlin**
+
+- **Android SDK**
+
+- **Fragments**
+
+- **RecyclerView**
+
+- **XML Layouts**
+
+- **Gradle**
+
+ 
 
 ---
 
-# 📱 Scenario Used
+ 
 
-The application demonstrates a **Master-Detail interface**.
+## 3. Scenario Used
 
-The application contains a list of items on the main screen. When the user selects an item, the application displays detailed information related to the selected item.
+ 
+
+This experiment demonstrates a **list-and-detail application scenario**.
+
+ 
+
+The application displays a list of items using a Fragment. When the user selects an item, the corresponding details are displayed using another Fragment.
+
+ 
+
+This demonstrates how Fragments can be used to create a flexible UI where different parts of the application can be managed independently.
+
+ 
 
 ### Application Flow
 
+ 
+
 ```text
-                 Android Application
-                         |
-                         v
-                +------------------+
-                |   MainActivity   |
-                +------------------+
-                         |
-                         v
-              +---------------------+
-              | ItemListFragment    |
-              +---------------------+
-                         |
-                    Select Item
-                         |
-                         v
-              +---------------------+
-              |  DetailFragment     |
-              +---------------------+
-                         |
-                         v
-                Display Item Details
+
+Application Launch
+
+       ↓
+
+List Fragment
+
+       ↓
+
+User selects an item
+
+       ↓
+
+Detail Fragment
+
+       ↓
+
+Selected item information displayed
+
 ```
 
----
-
-# ⚙️ Working of the Application
-
-1. The application starts with `MainActivity`.
-2. The main Activity hosts the Fragment-based interface.
-3. `ItemListFragment` displays a list of items.
-4. The list is displayed using `RecyclerView`.
-5. The user selects an item from the list.
-6. The selected item information is passed to the detail component.
-7. `DetailFragment` displays the selected item's details.
-8. The user can navigate back to the previous screen.
-
-Fragment transactions allow Android applications to add, remove, or replace Fragments during runtime.
+ 
 
 ---
 
-# 📂 Project Folder and File Structure
+ 
+
+## 4. Project Folder and File Structure
+
+ 
 
 ```text
-MADLab3
+
+Android-Fragments-Flexible-UI/
+
 │
-├── app
+
+├── app/
+
 │   │
-│   ├── src
-│   │   └── main
+
+│   ├── src/
+
+│   │   └── main/
+
 │   │       │
-│   │       ├── java
-│   │       │   └── com.example.madlab3
-│   │       │       ├── MainActivity.kt
-│   │       │       ├── Item.kt
-│   │       │       ├── ItemAdapter.kt
-│   │       │       ├── ItemListFragment.kt
-│   │       │       └── DetailFragment.kt
+
+│   │       ├── java/
+
+│   │       │   └── application source files
+
 │   │       │
-│   │       ├── res
-│   │       │   ├── drawable
-│   │       │   ├── layout
-│   │       │   ├── mipmap
-│   │       │   └── values
+
+│   │       ├── res/
+
+│   │       │   ├── layout/
+
+│   │       │   ├── drawable/
+
+│   │       │   ├── mipmap/
+
+│   │       │   └── values/
+
 │   │       │
+
 │   │       └── AndroidManifest.xml
+
 │   │
+
 │   └── build.gradle.kts
+
 │
-├── gradle
-│   └── wrapper
+
+├── gradle/
+
 │
-├── images
-│   ├── output.png
-│   ├── testcase1.png
-│   ├── testcase2.png
-│   └── testcase3.png
+
+├── Screenshot/
+
+│   ├── output1.png
+
+│   ├── output1.1.png
+
+│   └── output2.png
+
 │
-├── README.md
+
 ├── build.gradle.kts
+
 ├── settings.gradle.kts
+
 ├── gradle.properties
-└── gradlew
+
+├── gradlew
+
+├── gradlew.bat
+
+└── README.md
+
 ```
 
----
-
-# 📄 Important Files and Their Purpose
-
-### `MainActivity.kt`
-
-Acts as the main Activity and provides the container for the Fragment-based UI.
-
-### `Item.kt`
-
-Defines the data model used to represent the items displayed in the application.
-
-### `ItemAdapter.kt`
-
-Connects the item data with the RecyclerView and manages the individual list items.
-
-### `ItemListFragment.kt`
-
-Displays the list of items using RecyclerView.
-
-### `DetailFragment.kt`
-
-Displays detailed information about the item selected by the user.
-
-### `AndroidManifest.xml`
-
-Contains important application configuration and Android component declarations.
-
-### XML Layout Files
-
-Define the visual structure and user interface of the Activities and Fragments.
+ 
 
 ---
 
-# 🧪 Test Cases
+ 
 
-Three test cases were performed to verify the functionality of the application.
+## 5. Application Output
+
+ 
+
+### Output 1 – Initial Application Screen
+
+ 
+
+The first screenshot shows the application after launching successfully.
+
+ 
+
+![Output 1](Screenshot/output1.png)
+
+ 
+
+### Output 1.1 – Fragment Interaction
+
+ 
+
+This screenshot shows the application after interacting with the list/item and displaying the corresponding Fragment.
+
+ 
+
+![Output 1.1](Screenshot/output1.1.png)
+
+ 
+
+### Output 2 – Application Details
+
+ 
+
+This screenshot shows the subsequent application output.
+
+ 
+
+![Output 2](Screenshot/output2.png)
+
+ 
 
 ---
 
-## Test Case 1: Application Launch
+ 
+
+# 6. Test Cases
+
+ 
+
+## Test Case 1 – Launch Application
+
+ 
 
 ### Test Objective
 
-To verify that the application launches successfully and displays the main screen.
+ 
+
+To verify that the Android application launches successfully.
+
+ 
 
 ### Test Steps
+
+ 
 
 1. Open the application.
+
 2. Wait for the application to load.
-3. Observe the main screen.
-4. Verify that the item list is displayed.
+
+3. Observe the initial screen.
+
+ 
 
 ### Expected Result
 
-The application should launch successfully and display the main screen with the available items.
+ 
 
-### Actual Result
+The application should launch successfully without crashing and display the initial Fragment-based UI.
 
-The application launched successfully and displayed the item list.
-
-### Status
-
-**PASS ✅**
+ 
 
 ### Screenshot
 
-![Test Case 1 - Application Launch](images/testcase1.png)
+ 
 
----
+![Test Case 1](Screenshot/output1.png)
 
-# 🧪 Test Case 2: Item Selection and Detail Display
-
-### Test Objective
-
-To verify that selecting an item displays the corresponding details.
-
-### Test Steps
-
-1. Launch the application.
-2. Select an item from the displayed list.
-3. Observe the detail screen.
-4. Verify that the selected item's information is displayed.
-
-### Expected Result
-
-The application should display the details corresponding to the selected item.
-
-### Actual Result
-
-The selected item's details were displayed successfully.
+ 
 
 ### Status
 
-**PASS ✅**
+ 
 
-### Screenshot
+**PASS**
 
-![Test Case 2 - Detail Screen](images/testcase2.png)
+ 
 
 ---
 
-# 🧪 Test Case 3: USN and Name Verification
+ 
+
+## Test Case 2 – Select an Item
+
+ 
 
 ### Test Objective
 
-To verify that the student's name and USN are displayed correctly in the application.
+ 
 
-### Test Data
+To verify that selecting an item displays the appropriate Fragment.
 
-**Student Name:** Tejas Sunil Waske
-
-**USN:** 25MCAR0189
+ 
 
 ### Test Steps
 
+ 
+
 1. Launch the application.
-2. Navigate to the screen where student information is displayed.
-3. Verify the student's name.
-4. Verify the student's USN.
+
+2. View the list of available items.
+
+3. Select an item.
+
+4. Observe the displayed content.
+
+ 
 
 ### Expected Result
 
-The application should correctly display:
+ 
 
-```text
-Name: Tejas Sunil Waske
-USN: 25MCAR0189
+The corresponding detail Fragment should be displayed with the selected item's information.
+
+ 
+
+### Screenshot
+
+ 
+
+![Test Case 2](Screenshot/output1.1.png)
+
+ 
+
+### Status
+
+ 
+
+**PASS**
+
+ 
+
+---
+
+ 
+
+## Test Case 3 – Verify USN and Name
+
+ 
+
+### Test Objective
+
+ 
+
+To verify that the student's identification details are displayed correctly.
+
+ 
+
+### Test Steps
+
+ 
+
+1. Launch the application.
+
+2. Navigate to the screen containing the student details.
+
+3. Verify the displayed USN.
+
+4. Verify the displayed name.
+
+ 
+
+### Expected Result
+
+ 
+
+The application should display the correct student **USN and Name**.
+
+ 
+
+### Student Details
+
+ 
+
+**USN:** YOUR_USN  
+
+**Name:** Lathika Kathirvel
+
+ 
+
+### Screenshot
+
+ 
+
+![Test Case 3](Screenshot/output2.png)
+
+ 
+
+### Status
+
+ 
+
+**PASS**
+
+ 
+
+---
+
+ 
+
+# 7. Test Case Summary
+
+ 
+
+| Test Case | Description | Expected Result | Status |
+
+|---|---|---|---|
+
+| TC01 | Launch Application | Application launches successfully | PASS |
+
+| TC02 | Select an Item | Detail Fragment is displayed | PASS |
+
+| TC03 | Verify USN and Name | Correct USN and Name are displayed | PASS |
+
+ 
+
+---
+
+ 
+
+# 8. How to Run the Application
+
+ 
+
+1. Download or clone this repository.
+
+ 
+
+```bash
+
+git clone https://github.com/Lathika-kathirvel/Android-Fragments-Flexible-UI.git
+
 ```
 
-### Actual Result
+ 
 
-The student's name and USN were displayed correctly.
+2. Open the project in **Android Studio**.
 
-### Status
+ 
 
-**PASS ✅**
+3. Allow **Gradle Sync** to complete.
 
-### Screenshot
+ 
 
-![Test Case 3 - USN and Name](images/testcase3.png)
+4. Make sure the required Android SDK is installed.
 
----
+ 
 
-# 📸 Application Output
+5. Connect an Android device or start an Android Emulator.
 
-The final output of the Android application is shown below.
+ 
 
-![Application Output](images/output.png)
+6. Select the device from Android Studio.
 
----
+ 
 
-# 🚀 Steps to Run the Project
+7. Click the **Run ▶** button.
 
-1. Clone or download the repository.
-2. Open the project in Android Studio.
-3. Allow Gradle synchronization to complete.
-4. Connect an Android device or start an Android Emulator.
-5. Select the application configuration.
-6. Click the **Run ▶** button.
-7. The application will launch on the connected device or emulator.
+ 
+
+8. The application will be installed and launched on the selected device.
+
+ 
 
 ---
 
-# 💻 Requirements
+ 
 
-## Hardware Requirements
+# 9. GitHub Repository
 
-* Laptop/Desktop computer
-* Android device or Android Emulator
-* USB cable if using a physical Android device
+ 
 
-## Software Requirements
+The complete source code, screenshots, and documentation are available here:
 
-* Android Studio
-* Android SDK
-* Kotlin
-* Gradle
+ 
 
----
+[Android-Fragments-Flexible-UI](https://github.com/Lathika-kathirvel/Android-Fragments-Flexible-UI)
 
-# 🎓 Learning Outcomes
-
-After completing this experiment, the following concepts were learned:
-
-* Understanding Android Fragments.
-* Creating and using multiple Fragments.
-* Understanding Fragment lifecycle.
-* Creating flexible and modular UI components.
-* Using RecyclerView to display dynamic lists.
-* Implementing a Master-Detail interface.
-* Passing and displaying selected item data.
-* Performing Fragment navigation and transactions.
-* Developing Android applications using Kotlin.
+ 
 
 ---
 
-# ✅ Conclusion
+ 
 
-The Android application was successfully developed using Kotlin, Fragments, and RecyclerView.
+# 10. Conclusion
 
-The experiment demonstrated how Fragments can be used to create flexible, reusable, and modular user interfaces. RecyclerView was used to display a list of items efficiently, while the Detail Fragment was used to display information related to the selected item.
+ 
 
-The application was successfully tested using three test cases, including verification of the student's name and USN.
+This experiment demonstrates the use of **Android Fragments** for developing a flexible and modular user interface.
 
-Therefore, the objective of implementing an Android application using Fragments for flexible UI was successfully achieved.
+ 
 
----
+The application separates different UI responsibilities into Fragment components and demonstrates how users can interact with different sections of the application.
 
-# 👨‍💻 Student Information
+ 
 
-**Name:** Tejas Sunil Waske
+Through this experiment, the concept of Fragments, Fragment-based navigation, reusable UI components, and flexible Android layouts is demonstrated successfully.
 
-**USN:** 25MCAR0189
-
-**Experiment:** MAD Lab Experiment 3
+ 
 
 ---
 
-# 🔗 GitHub Repository
+ 
 
-**Repository:**
-https://github.com/twaske2-dotcom/MADLab3/edit/main/README.md
+## Submitted By
 
----
+ 
 
-# 📚 Reference
+**Name:** Lathika Kathirvel  
 
-**Android Developers – Fragments:**
-https://developer.android.com/guide/fragments/create
-
-**Android Developers – RecyclerView:**
-https://developer.android.com/develop/ui/views/layout/recyclerview
-
-**Android Developers – Fragment Transactions:**
-https://developer.android.com/guide/fragments/transactions
+**USN:** 25MCAR0103
